@@ -1,3 +1,4 @@
 # 2nd-Project
 Javascript/API
-response.json.dailyforcasts
+Anthony McTague
+HTML,CSS,JavaScript

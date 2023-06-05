@@ -1,83 +1,122 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  .search-bar {
-    display: flex;
-    margin-top: 20px;
-  }
-  
-  #search-input {
-    flex: 1;
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  #search-button {
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #fff;
-    color: #007bff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  .weather-result {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .weather-result h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .weather-result p {
-    font-size: 16px;
-  }
-  .weather-result {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-  }
-  
-  .weather-result h2 {
-    margin-top: 0;
-  }
-  
-  .weather-result p {
-    margin: 5px 0;
-  }
-  
-  .weather-result p:first-child {
-    font-weight: bold;
-  }
-  
-  .weather-result p:last-child {
-    margin-bottom: 0;
-  }
-  
+  background-image: url('https://images.unsplash.com/photo-1518886265276-d11a452fd83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: gray;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#search-input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+#search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.weather-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 300px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  color: white;
+}
+
+.weather-result:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-result h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.weather-result p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.weather-result p:first-child {
+  font-weight: bold;
+}
+
+.weather-result p:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin-top: auto;
+}
+
+.footer-columns {
+  display: flex;
+}
+
+.footer-column {
+  flex: 1;
+}
+
+.footer-column h3 {
+  margin-top: 0;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 5px;
+}
