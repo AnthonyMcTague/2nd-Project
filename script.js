@@ -85,7 +85,7 @@ function displayWeather(data) {
     resultElement.classList.add("weather-result");
     resultElement.innerHTML = `
       <h2>${dayOfWeek}</h2>
-      <p>Date: ${date}</p>
+      
       <p>Temperature: ${minTemperature}°F - ${maxTemperature}°F</p>
       <div>
         <span>Day: <i class="wi ${dayIconClass}"></i></span>
