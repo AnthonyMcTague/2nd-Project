@@ -20,10 +20,12 @@ header {
 
 h1 {
   font-family: fantasy;
-  margin: 0;
-  font-size: 32px;
+  margin-bottom: 10px;
+  font-size: 36px;
+  color: #333;
   font-weight: bold;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .centered-content {
