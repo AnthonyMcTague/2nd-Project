@@ -12,7 +12,7 @@ async function getWeatherData() {
   const locationKey = await getLocationKey(query);
 
   if (locationKey) {
-    const apiUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}`;
+    const apiUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}`;
 
     try {
       const response = await fetch(apiUrl);
@@ -29,7 +29,7 @@ async function getWeatherData() {
 }
 
 async function getLocationKey(query) {
-  const apiLocationUrl = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${query}`;
+  const apiLocationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${query}`;
 
   try {
     const response = await fetch(apiLocationUrl);
@@ -49,8 +49,6 @@ async function getLocationKey(query) {
   }
 }
 
-
-
 function handleEnterKey(event) {
   if (event.key === "Enter") {
     getWeatherData();
@@ -63,8 +61,9 @@ function clearWeatherResults() {
 
 function displayWeather(data) {
   clearWeatherResults();
+ 
 
-  const location = data.location;
+  const location = data.Location || data.location; 
   const forecasts = data.DailyForecasts;
 
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -97,66 +96,66 @@ function displayWeather(data) {
   });
 }
 
+
 function getWeatherIconClass(iconCode) {
   const iconMappings = {
     1: "wi-day-sunny",
     2: "wi-day-cloudy",
-    3: "wi-cloud",
-    4: "wi-cloudy",
-    5: "wi-cloudy",
-    6: "wi-day-rain",
-    7: "wi-day-rain",
-    8: "wi-day-rain",
+    3: "wi-cloudy",
+    4: "wi-cloudy-windy",
+    5: "wi-day-haze",
+    6: "wi-day-cloudy-windy",
+    7: "wi-day-cloudy",
+    8: "wi-day-cloudy",
     11: "wi-day-fog",
-    12: "wi-day-showers",
+    12: "wi-rain",
     13: "wi-day-showers",
     14: "wi-day-showers",
-    15: "wi-day-thunderstorm",
-    16: "wi-day-snow",
-    17: "wi-day-snow",
-    18: "wi-day-snow",
-    19: "wi-day-snow",
-    20: "wi-day-fog",
-    21: "wi-day-fog",
-    22: "wi-day-fog",
-    23: "wi-day-fog",
-    24: "wi-day-windy",
-    25: "wi-day-windy",
-    26: "wi-day-windy",
-    29: "wi-day-hail",
-    30: "wi-day-hail",
-    31: "wi-day-hail",
-    32: "wi-day-hail",
-    33: "wi-night-clear",
-    34: "wi-night-alt-cloudy",
-    35: "wi-cloud",
-    36: "wi-cloudy",
-    37: "wi-cloudy",
-    38: "wi-night-alt-rain",
-    39: "wi-night-alt-rain",
-    40: "wi-night-alt-rain",
-    41: "wi-night-fog",
-    42: "wi-night-alt-showers",
-    43: "wi-night-alt-showers",
-    44: "wi-night-alt-showers",
-    45: "wi-night-alt-thunderstorm",
-    46: "wi-night-alt-snow",
-    47: "wi-night-alt-snow",
-    48: "wi-night-alt-snow",
-    49: "wi-night-alt-snow",
-    50: "wi-night-fog",
-    51: "wi-night-fog",
-    52: "wi-night-fog",
-    53: "wi-night-fog",
-    54: "wi-night-alt-cloudy-windy",
-    55: "wi-night-alt-cloudy-windy",
-    56: "wi-night-alt-cloudy-windy",
-    59: "wi-night-alt-hail",
-    60: "wi-night-alt-hail",
-    61: "wi-night-alt-hail",
-    62: "wi-night-alt-hail",
+    15: "wi-thunderstorm",
+    16: "wi-snow",
+    17: "wi-sleet",
+    18: "wi-day-showers",
+    19: "wi-dust",
+    20: "wi-fog",
+    21: "wi-day-haze",
+    22: "wi-smoke",
+    23: "wi-strong-wind",
+    24: "wi-windy",
+    25: "wi-snowflake-cold",
+    26: "wi-cloudy",
+    29: "wi-day-thunderstorm",
+    30: "wi-night-clear",
+    31: "wi-night-partly-cloudy",
+    32: "wi-night-cloudy",
+    33: "wi-night-cloudy",
+    34: "wi-night-cloudy",
+    35: "wi-night-cloudy",
+    36: "wi-night-rain",
+    37: "wi-night-showers",
+    38: "wi-thunderstorm",
+    39: "wi-night-showers",
+    40: "wi-night-showers",
+    41: "wi-night-snow",
+    42: "wi-night-snow",
+    43: "wi-night-snow",
+    44: "wi-cloud"
   };
 
-  return iconMappings[iconCode] || "wi-na";
+  return iconMappings[iconCode] || "wi-cloud";
 }
 
+function openTab(event, tabName) {
+  const tabContents = document.getElementsByClassName("tab-content");
+  for (let i = 0; i < tabContents.length; i++) {
+    tabContents[i].style.display = "none";
+  }
+
+  const tabButtons = document.getElementsByClassName("tab-button");
+  for (let i = 0; i < tabButtons.length; i++) {
+    tabButtons[i].classList.remove("active");
+  }
+
+  const selectedTab = document.getElementById(tabName);
+  selectedTab.style.display = "block";
+  event.currentTarget.classList.add("active");
+}
